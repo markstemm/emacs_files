@@ -1,14 +1,8 @@
-;; this is unnecessary unless you want zcat
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'zenburn t)
-;;(color-theme-zenburn)
-;(require 'psvn)
 (setq svn-status-verbose nil)
 ;(setq svn-status-default-diff-arguments '("--diff-cmd" "/home/mstemm/bin/bdiff" "-x" "-b" "-B"))
 (setq svn-status-default-diff-arguments nil)
-;(load-library "~/elisp/vc.el")
-(load-library "~/elisp/mwheel.el")
-;;(load-library "~/elisp/ruby-mode.el")
 (global-font-lock-mode 1)
 (global-set-key "\M-?" 'help-command)	;beyond any doubt, binding this to ^H was the stupidest thing RMS did to EMACS
 (global-set-key "\M-?\M-?" 'help-for-help) ;let's be as consistent as possible
@@ -44,23 +38,12 @@
       (message "Region has %d words" n)
       n)))
 
-(setq inferior-lisp-program "/usr/sww/bin/cl") ;make common lisp the lisp
-
 (setq c-tab-always-indent nil)
-(setq gnus-show-threads t)
 
-;;(autoload 'ruby-mode "ruby-mode" "Load ruby-mode")
-;;(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-;;(setq auto-mode-alist  (cons '(".rhtml$" . html-mode) auto-mode-alist))
 (setq ruby-indent-level 4)
-;; uncomment the next line if you want syntax highlighting
-;;(add-hook 'ruby-mode-hook 'turn-on-font-lock)
 
 ;; turn on line number mode
 (line-number-mode 1)
-
-;;mail stuff
-(setq gnus-default-nntp-server "agate.berkeley.edu")
 
 (setq auto-mode-alist
       (nconc (list '("\\.[ly]$" . c-mode) ;for lex/yacc input
@@ -69,8 +52,11 @@
                    '("\\.tgz" . tar-mode)
 		   '("\\.java$" . java-mode)
 		   '("\\.cc$" . c++-mode)
-		   '("\\.h$" . c++-mode)
-		   '("\\.c$" . c++-mode)
+		   '("\\.hh$" . c++-mode)
+		   '("\\.h$" . c-mode)
+		   '("\\.c$" . c-mode)
+		   '("\\.H$" . c-mode)
+		   '("\\.C$" . c-mode)		   
 		   '("\\.xsd$" . xml-mode)		   
                    '("\\.html$". html-helper-mode)
                    )
@@ -80,18 +66,6 @@
 (setq comint-buffer-maximum-size 10000)
 (add-hook 'comint-output-filter-functions
 	  'comint-truncate-buffer)
-
-(autoload 'c++-mode "cc-mode" "C++ Editing Mode" nil)
-(autoload 'c-mode "cc-mode" "C Editing Mode" nil)
-(autoload 'c-edit-macro "c-edit-macro" "C Macro Editing" t)
-
-(setq auto-mode-alist (append (list '("\\.cc\$" . c++-mode)
-				    '("\\.hh\$" . c++-mode)
-				    '("\\.C\$" . c++-mode)
-				    '("\\.H\$" . c++-mode)
-				    '("\\.c\$" . c-mode)
-				    '("\\.h\$" . c-mode))
-			      auto-mode-alist))
 
 (defun my-c-mode-hook ()
   (c-set-style "BSD")
@@ -108,8 +82,6 @@
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 (add-hook 'c++-mode-hook 'my-c-mode-hook)
 
-(setq lcvs-log-restrict-to-branch nil)
-
 (setq buffers-menu-sort-function
       'sort-buffers-menu-by-size)
 
@@ -118,11 +90,6 @@
   (interactive (list (read-string "Grope for: " (current-word))))
   (compile-internal (concat "grope " sym) "No more grope hits" "grope"
                     nil grep-regexp-alist))
-(custom-set-variables)
-					;(custom-set-faces
-					; '(font-lock-comment-face ((((class color) (background dark)) (:foreground "Orange"))))
-					; '(font-lock-warning-face ((((class color) (background dark)) (:foreground "Pink")))))
-
 (setq tab-width 4)
 (setq indent-tabs-mode nil) 
 
