@@ -24,6 +24,7 @@
 (global-set-key "\C-z" 'suspend-emacs)
 (global-set-key "\C-q" 'indent-region)
 (global-set-key "\C-t" 'call-last-kbd-macro)
+(global-set-key "\C-x\C-M" 'magit-status)
 
 (global-set-key "\C-m" 'newline-and-indent)
 
