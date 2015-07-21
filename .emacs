@@ -1,5 +1,5 @@
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'zenburn t)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(load-theme 'zenburn t)
 (setq svn-status-verbose nil)
 ;(setq svn-status-default-diff-arguments '("--diff-cmd" "/home/mstemm/bin/bdiff" "-x" "-b" "-B"))
 (setq svn-status-default-diff-arguments nil)
