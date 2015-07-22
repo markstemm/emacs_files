@@ -1,9 +1,12 @@
 ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 ;(load-theme 'zenburn t)
+(require 'magit)
 (add-to-list 'custom-theme-load-path "~/src/emacs-color-theme-solarized")
 (load-theme 'solarized t)
 (set-frame-parameter nil 'background-mode 'dark)
 (set-terminal-parameter nil 'background-mode 'dark)
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
 (setq svn-status-verbose nil)
 ;(setq svn-status-default-diff-arguments '("--diff-cmd" "/home/mstemm/bin/bdiff" "-x" "-b" "-B"))
 (setq svn-status-default-diff-arguments nil)
@@ -64,6 +67,8 @@
 		   '("\\.C$" . c-mode)		   
 		   '("\\.xsd$" . xml-mode)		   
                    '("\\.html$". html-helper-mode)
+		   '("\\.md$". markdown-mode)
+		   '("\\.markdown$". markdown-mode)
                    )
              auto-mode-alist))
 
