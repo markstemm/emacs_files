@@ -170,6 +170,11 @@
 	     (make-local-variable 'write-contents-functions)
 	     (add-hook 'write-contents-functions 'any-mode-untabify)))
 
+(add-hook 'python-mode-hook
+	  '(lambda ()
+	     (make-local-variable 'write-contents-functions)
+	     (add-hook 'write-contents-functions 'any-mode-untabify)))
+
 (add-hook 'sgml-mode-hook
 	  '(lambda ()
 	     (make-local-variable 'write-contents-functions)
@@ -194,3 +199,17 @@
 	  '(lambda ()
 	     (make-local-variable 'write-contents-functions)
 	     (add-hook 'write-contents-functions 'any-mode-untabify)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(magit-diff-arguments
+   (quote
+    ("--function-context" "--ignore-space-change" "--no-ext-diff" "--stat"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
