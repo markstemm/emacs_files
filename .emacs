@@ -1,5 +1,14 @@
 ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 ;(load-theme 'zenburn t)
+(add-to-list 'load-path "/Users/mstemm/downloads/ess-16.04/lisp")
+(add-to-list 'load-path "/mnt/sf_mstemm/downloads/ess-16.04/lisp")
+(load "ess-site")
+(require 'package)
+(setq package-archives
+      '(("melpa-stable" . "http://stable.melpa.org/packages/")
+	("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
+
 (require 'magit)
 (add-to-list 'custom-theme-load-path "~/src/emacs-color-theme-solarized")
 (load-theme 'solarized t)
@@ -34,11 +43,6 @@
 (global-set-key "\C-x\m" 'magit-status)
 
 (global-set-key "\C-m" 'newline-and-indent)
-
-(require 'package)
-(setq package-archives
-	     '(("melpa" . "http://melpa.org/packages/")))
-(package-initialize)
 
 (defun count-words-region (start end)
   (interactive "r")
@@ -184,3 +188,7 @@
 	     (make-local-variable 'write-contents-functions)
 	     (add-hook 'write-contents-functions 'any-mode-untabify)))
 
+(add-hook 'ess-mode-hook
+	  '(lambda ()
+	     (make-local-variable 'write-contents-functions)
+	     (add-hook 'write-contents-functions 'any-mode-untabify)))
