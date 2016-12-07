@@ -59,6 +59,8 @@
 
 (setq ruby-indent-level 4)
 
+(setq cmake-tab-width 8)
+
 ;; turn on line number mode
 (line-number-mode 1)
 
