@@ -64,8 +64,8 @@
 ;; turn on line number mode
 (line-number-mode 1)
 
-(load "~/elisp/juttle-derived-mode.el")
-(autoload 'juttle-derived-mode "juttle-derived-mode" "Juttle mode" t)
+;(load "~/elisp/juttle-derived-mode.el")
+;(autoload 'juttle-derived-mode "juttle-derived-mode" "Juttle mode" t)
 
 (setq auto-mode-alist
       (nconc (list '("\\.[ly]$" . c-mode) ;for lex/yacc input
